@@ -1,105 +1,198 @@
 {
+  "global": {
+    "country": "Sudan",
+    "countryCode": "SD",
+    "language": "ar",
+    "textDirection": "rtl",
+    "currency": {
+      "symbol": "ج.س",
+      "code": "SDG",
+      "locale": "ar-SD"
+    },
+    "timezone": "Africa/Khartoum",
+    "phoneFormat": "+249-90-0967638"
+  },
+  "restaurant": {
     "name": "بيست تيست | BEST TASTE",
-    "cuisine": "أقاشي، كفته، شيش، برجر وكرسبي",
-    "description": "أفضل مذاق في كل مره - بورتسودان، حي المطار شارع السلك",
+    "cuisine": "مأكولات سريعة ومشويات وأقاشي",
+    "address": "بورتسودان، حي المطار، شارع السلك",
+    "coordinates": {
+      "latitude": 19.6175,
+      "longitude": 37.2164
+    },
     "phone": "+249900967638",
-    "currency": "ج.س",
-    "menu": [
-        {
-            "id": 1,
+    "email": "ahmedosmann1001@gmail.com",
+    "website": "https://www.instagram.com/best__taste_249",
+    "hours": {
+      "monday": "12:00-02:00",
+      "tuesday": "12:00-02:00",
+      "wednesday": "12:00-02:00",
+      "thursday": "12:00-02:00",
+      "friday": "12:00-02:00",
+      "saturday": "12:00-02:00",
+      "sunday": "12:00-02:00"
+    },
+    "rating": "4.8",
+    "reviews_count": 150,
+    "description": "أفضل مذاق في كل مرة. نقدم ألذ السندوشات والوجبات (أقاشي، كفته، شيش طاووق، برجر، وكرسبي) بأعلى جودة.",
+    "images": [
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": {
+      "primary": "#8E44AD",
+      "secondary": "#512E5F",
+      "accent": "#F39C12"
+    }
+  },
+  "menu": {
+    "categories": [
+      {
+        "name": "السندوشات",
+        "items": [
+          {
             "name": "أقاشي فراخ/لحمه عادي",
-            "desc": "ساندوتش أقاشي فراخ أو لحم طازج ومتبل على الطريقة الأصلية",
+            "description": "سندوش أقاشي فراخ او لحم طازج ولذيذ",
             "price": 10000,
-            "tag": "popular",
-            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 2,
+            "localPrice": "10,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "أقاشي فراخ/لحمه جامبو",
-            "desc": "حجم جامبو مشبع من الأقاشي الأصيل بتتبيلة مميزة",
+            "description": "حجم جامبو مشبع ومميز",
             "price": 18000,
-            "tag": "popular",
-            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 3,
+            "localPrice": "18,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "كفته عادي",
-            "desc": "ساندوتش كفته مشوية على الفحم باختيارك الفخم",
+            "description": "سندوش كفته بتتبيلة بيست تيست الخاصة",
             "price": 10500,
-            "tag": "new",
-            "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 4,
+            "localPrice": "10,500 ج.س",
+            "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "كفته جامبو",
-            "desc": "حجم جامبو كبير من الكفته المشوية على الفحم",
+            "description": "سندوش كفته حجم جامبو",
             "price": 17000,
-            "tag": "new",
-            "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 5,
+            "localPrice": "17,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "شيش طاووق عادي",
-            "desc": "قطع دجاج متبلة وممشوية على الفحم بطعم هادي ومترب",
+            "description": "قطع دجاج طري ومتبل على الفحم",
             "price": 10500,
-            "tag": "popular",
-            "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 6,
+            "localPrice": "10,500 ج.س",
+            "image": "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "شيش طاووق جامبو",
-            "desc": "حجم جامبو من الشيش طاووق الطري واللذيذ",
+            "description": "شيش طاووق حجم جامبو",
             "price": 17000,
-            "tag": "popular",
-            "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 7,
+            "localPrice": "17,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "بيرجر عادي",
-            "desc": "لحم برجر طازج مع الصوصات الخاصة لعشاق العملي",
+            "description": "برجر لحم/دجاج كلاسيكي شهي",
             "price": 19000,
-            "tag": "popular",
-            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 8,
+            "localPrice": "19,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "بيرجر جامبو",
-            "desc": "حجم جامبو مزدوج لمحبي البرجر والمذاق القوي",
+            "description": "برجر حجم جامبو لمحبي الوجبات الكبيرة",
             "price": 25000,
-            "tag": "popular",
-            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 9,
+            "localPrice": "25,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "بيرجر بيست",
-            "desc": "الوجبة الملكية الخاصة بالمطعم لمحبي البيرجر الفاخر",
+            "description": "بيرجر بيست تيست الخاص الفاخر",
             "price": 28000,
-            "tag": "new",
-            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 10,
+            "localPrice": "28,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "كرسبي عادي",
-            "desc": "دجاج كرسبي مقرمش بخلطة السرية لمن لا يعرف الهزار في القرمشة",
+            "description": "دجاج كرسبي مقرمش",
             "price": 19500,
-            "tag": "spicy",
-            "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 11,
+            "localPrice": "19,500 ج.س",
+            "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "كرسبي جامبو",
-            "desc": "حجم جامبو كبير من الدجاج الكرسبي المقرمش",
+            "description": "وجبة كرسبي جامبو مقرمشة",
             "price": 25000,
-            "tag": "spicy",
-            "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            "id": 12,
+            "localPrice": "25,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=500&q=80"
+          },
+          {
             "name": "كرسبي بيست",
-            "desc": "وجبة الكرسبي الخاصة الفاخرة المقرمشة",
+            "description": "كرسبي بيست الخاص المقرمش",
             "price": 28000,
-            "tag": "spicy",
-            "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
-        }
+            "localPrice": "28,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=500&q=80"
+          }
+        ]
+      },
+      {
+        "name": "الطلبات والوجبات",
+        "items": [
+          {
+            "name": "طلب أقاشي فراخ/لحمه",
+            "description": "وجبة أقاشي متكاملة",
+            "price": 19000,
+            "localPrice": "19,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80"
+          },
+          {
+            "name": "أقاشي فراخ / لحمه بيست",
+            "description": "طلب أقاشي بيست تيست الخاص الملكي",
+            "price": 38000,
+            "localPrice": "38,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80"
+          },
+          {
+            "name": "طلب كفته",
+            "description": "وجبة كفته مشوية مع الملحقات",
+            "price": 21000,
+            "localPrice": "21,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=500&q=80"
+          },
+          {
+            "name": "طلب كفته بيست",
+            "description": "وجبة كفته بيست تيست الكبيرة",
+            "price": 40000,
+            "localPrice": "40,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=500&q=80"
+          },
+          {
+            "name": "طلب شيش طاووق",
+            "description": "وجبة شيش طاووق مع البطاطس والصوصات",
+            "price": 21000,
+            "localPrice": "21,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=500&q=80"
+          },
+          {
+            "name": "طلب شيش طاووق بيست",
+            "description": "وجبة شيش طاووق بيست الخاصة",
+            "price": 40000,
+            "localPrice": "40,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=500&q=80"
+          },
+          {
+            "name": "طلب شبس",
+            "description": "بطاطس مقلية ذهبية ومقرمشة",
+            "price": 9000,
+            "localPrice": "9,000 ج.س",
+            "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80"
+          }
+        ]
+      }
     ]
+  },
+  "paymentMethods": [
+    "cash",
+    "whatsapp"
+  ]
 }
