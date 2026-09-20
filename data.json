@@ -1,117 +1,105 @@
 {
-    "restaurant_name": "بيست تيست | BEST TASTE",
-    "tagline": "أفضل مذاق في كل مره",
-    "category": "Food & Drink",
-    "location": "بورتسودان، حي المطار (شارع السلك)",
-    "phone": "0900967638",
-    "email": "ahmedosmann1001@gmail.com",
-    "instagram": "https://www.instagram.com/best__taste_249?",
-    "menu": {
-        "سندوشات": [
-            {
-                "item": "اقاشي فراخ/لحمه عادي",
-                "price": 10.0
-            },
-            {
-                "item": "اقاشي فراخ/لحمه جامبو",
-                "price": 18.0
-            },
-            {
-                "item": "كفته عادي",
-                "price": 10.5
-            },
-            {
-                "item": "كفته جامبو",
-                "price": 17.0
-            },
-            {
-                "item": "شيش طاووق عاي",
-                "price": 10.5
-            },
-            {
-                "item": "شيش طاووق جامبو",
-                "price": 17.0
-            },
-            {
-                "item": "بيرقر عادي",
-                "price": 19.0
-            },
-            {
-                "item": "بيرقر جامبو",
-                "price": 25.0
-            },
-            {
-                "item": "بيرقر بيست",
-                "price": 28.0
-            },
-            {
-                "item": "كرسبي عادي",
-                "price": 19.5
-            },
-            {
-                "item": "كرسبي جامبو",
-                "price": 25.0
-            },
-            {
-                "item": "كرسبي بيست",
-                "price": 28.0
-            }
-        ],
-        "الطلبات": [
-            {
-                "item": "طلب اقاشي فراخ/ لحمه",
-                "price": 19.0
-            },
-            {
-                "item": "اقاشي فراخ / لحمه بيست",
-                "price": 38.0
-            },
-            {
-                "item": "طلب كفته",
-                "price": 21.0
-            },
-            {
-                "item": "طلب كفته بيست",
-                "price": 40.0
-            },
-            {
-                "item": "طلب شيش طاووق",
-                "price": 21.0
-            },
-            {
-                "item": "طلب شيش طاووق بيست",
-                "price": 40.0
-            },
-            {
-                "item": "طلب شبس",
-                "price": 9.0
-            }
-        ]
-    },
-    "customer_personalities": [
+    "name": "بيست تيست | BEST TASTE",
+    "cuisine": "أقاشي، كفته، شيش، برجر وكرسبي",
+    "description": "أفضل مذاق في كل مره - بورتسودان، حي المطار شارع السلك",
+    "phone": "+249900967638",
+    "currency": "ج.س",
+    "menu": [
         {
-            "type": "محب البرجر",
-            "description": "إنت زول عملي وما بتحب اللف والدوران... عارف إنت داير شنو"
+            "id": 1,
+            "name": "أقاشي فراخ/لحمه عادي",
+            "desc": "ساندوتش أقاشي فراخ أو لحم طازج ومتبل على الطريقة الأصلية",
+            "price": 10000,
+            "tag": "popular",
+            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
         },
         {
-            "type": "محب الكرسبي",
-            "description": "إنت بتحب التفاصيل، والقرمشة بالنسبة ليك ما فيها هزار"
+            "id": 2,
+            "name": "أقاشي فراخ/لحمه جامبو",
+            "desc": "حجم جامبو مشبع من الأقاشي الأصيل بتتبيلة مميزة",
+            "price": 18000,
+            "tag": "popular",
+            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
         },
         {
-            "type": "محب الأقاشي",
-            "description": "إنت زول أصيل وما بتبدل الطعم الصح بأي حاجة"
+            "id": 3,
+            "name": "كفته عادي",
+            "desc": "ساندوتش كفته مشوية على الفحم باختيارك الفخم",
+            "price": 10500,
+            "tag": "new",
+            "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
         },
         {
-            "type": "محب الكفته",
-            "description": "اختياراتك فخمة، وما بتَمشي مع أي حاجة"
+            "id": 4,
+            "name": "كفته جامبو",
+            "desc": "حجم جامبو كبير من الكفته المشوية على الفحم",
+            "price": 17000,
+            "tag": "new",
+            "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
         },
         {
-            "type": "محب الشيش طاووق",
-            "description": "إنت هادي ومرتب، لكن لمن تجوع الموضوع بقلب جد"
+            "id": 5,
+            "name": "شيش طاووق عادي",
+            "desc": "قطع دجاج متبلة وممشوية على الفحم بطعم هادي ومترب",
+            "price": 10500,
+            "tag": "popular",
+            "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80"
         },
         {
-            "type": "محب البطاطس",
-            "description": "إنت مقتنع إنو البطاطس تمشي مع أي حاجة... وبصراحة عندك حق"
+            "id": 6,
+            "name": "شيش طاووق جامبو",
+            "desc": "حجم جامبو من الشيش طاووق الطري واللذيذ",
+            "price": 17000,
+            "tag": "popular",
+            "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            "id": 7,
+            "name": "بيرجر عادي",
+            "desc": "لحم برجر طازج مع الصوصات الخاصة لعشاق العملي",
+            "price": 19000,
+            "tag": "popular",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            "id": 8,
+            "name": "بيرجر جامبو",
+            "desc": "حجم جامبو مزدوج لمحبي البرجر والمذاق القوي",
+            "price": 25000,
+            "tag": "popular",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            "id": 9,
+            "name": "بيرجر بيست",
+            "desc": "الوجبة الملكية الخاصة بالمطعم لمحبي البيرجر الفاخر",
+            "price": 28000,
+            "tag": "new",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            "id": 10,
+            "name": "كرسبي عادي",
+            "desc": "دجاج كرسبي مقرمش بخلطة السرية لمن لا يعرف الهزار في القرمشة",
+            "price": 19500,
+            "tag": "spicy",
+            "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            "id": 11,
+            "name": "كرسبي جامبو",
+            "desc": "حجم جامبو كبير من الدجاج الكرسبي المقرمش",
+            "price": 25000,
+            "tag": "spicy",
+            "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+            "id": 12,
+            "name": "كرسبي بيست",
+            "desc": "وجبة الكرسبي الخاصة الفاخرة المقرمشة",
+            "price": 28000,
+            "tag": "spicy",
+            "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80"
         }
     ]
 }
