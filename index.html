@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم النخبة - نظام الطلب الذكي</title>
+    <title id="page-title">منصة الطلب الذكية</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP Animation Library -->
@@ -27,26 +27,29 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
         body { font-family: 'Cairo', sans-serif; }
-        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .light .glass { background: rgba(255, 255, 255, 0.7); }
+        .glass { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .light .glass { background: rgba(255, 255, 255, 0.8); }
+        /* إخفاء شريط التمرير للتصميم الجمالي */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col transition-colors duration-500">
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800 transition-colors">
+    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800/80 transition-colors">
         <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="w-12 h-12 rounded-full bg-rose-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-rose-600/30" id="res-logo">م</div>
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-rose-600/30" id="res-logo">...</div>
                 <div>
-                    <h1 class="text-lg font-bold tracking-wide" id="res-name">جاري التحميل...</h1>
-                    <span class="text-xs text-emerald-400 flex items-center gap-1 font-semibold" id="res-status">
+                    <h1 class="text-base md:text-lg font-bold tracking-wide" id="res-name">جاري تحميل البيانات...</h1>
+                    <span class="text-xs text-emerald-400 flex items-center gap-1.5 font-semibold" id="res-status">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> مفتوح الآن
                     </span>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
-                <button onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-slate-800/80 flex items-center justify-center text-slate-300 hover:text-white transition">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white transition shadow-sm">
                     <i class="fa-solid fa-moon" id="theme-icon"></i>
                 </button>
             </div>
@@ -55,34 +58,34 @@
 
     <!-- Hero Section -->
     <section class="relative pt-32 pb-16 px-4 overflow-hidden flex items-center justify-center text-center">
-        <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="absolute inset-0 z-0 opacity-30 bg-cover bg-center" id="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent z-10"></div>
         <div class="relative z-20 max-w-3xl mx-auto space-y-6">
-            <span class="px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-bold tracking-wider uppercase" id="res-cuisine">المطبخ العصري</span>
-            <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-tight" id="hero-title">تجربة طعام استثنائية تلامس حواسك</h2>
-            <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto" id="res-desc">اكتشف أشهى المأكولات المحضرة بعناية فائقة لتلبي شغفك بالطعم الأصيل والجودة العالية.</p>
+            <span class="px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-bold tracking-wider uppercase inline-block" id="res-cuisine">المطبخ العصري</span>
+            <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight" id="hero-title">تجربة طعام استثنائية تلامس حواسك</h2>
+            <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed" id="res-desc">اكتشف أشهى المأكولات المحضرة بعناية فائقة لتلبي شغفك بالطعم الأصيل والجودة العالية.</p>
         </div>
     </section>
 
     <!-- Smart Filter Chips -->
     <div class="sticky top-20 z-40 bg-slate-950/90 backdrop-blur-md py-4 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 flex gap-2 overflow-x-auto no-scrollbar scroll-smooth" id="filter-chips">
-            <button onclick="filterMenu('all')" class="chip-btn px-5 py-2 rounded-full bg-rose-600 text-white font-semibold text-sm whitespace-nowrap shadow-md transition">الكل</button>
-            <button onclick="filterMenu('popular')" class="chip-btn px-5 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-sm whitespace-nowrap hover:bg-slate-800 transition">الأكثر مبيعاً ⭐</button>
-            <button onclick="filterMenu('spicy')" class="chip-btn px-5 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-sm whitespace-nowrap hover:bg-slate-800 transition">حار 🌶️</button>
-            <button onclick="filterMenu('new')" class="chip-btn px-5 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-sm whitespace-nowrap hover:bg-slate-800 transition">جديد ✨</button>
+            <button onclick="filterMenu('all', this)" class="chip-btn px-5 py-2.5 rounded-xl bg-rose-600 text-white font-semibold text-xs md:text-sm whitespace-nowrap shadow-md shadow-rose-600/20 transition">الكل</button>
+            <button onclick="filterMenu('popular', this)" class="chip-btn px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs md:text-sm whitespace-nowrap hover:bg-slate-800 transition">الأكثر مبيعاً ⭐</button>
+            <button onclick="filterMenu('spicy', this)" class="chip-btn px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs md:text-sm whitespace-nowrap hover:bg-slate-800 transition">حار 🌶️</button>
+            <button onclick="filterMenu('new', this)" class="chip-btn px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs md:text-sm whitespace-nowrap hover:bg-slate-800 transition">جديد ✨</button>
         </div>
     </div>
 
     <!-- Main Menu Grid -->
     <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="menu-grid">
-            <!-- Items rendered dynamically -->
+            <!-- سيتم تعبئة الأطباق ديناميكياً هنا -->
         </div>
     </main>
 
     <!-- Floating Sticky Cart Bar -->
-    <div id="sticky-cart" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md bg-rose-600 text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between cursor-pointer transform translate-y-32 transition-transform duration-300" onclick="toggleCartDrawer(true)">
+    <div id="sticky-cart" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md bg-rose-600 text-white p-4 rounded-2xl shadow-2xl shadow-rose-600/40 flex items-center justify-between cursor-pointer transform translate-y-32 transition-transform duration-300" onclick="toggleCartDrawer(true)">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center font-bold text-lg" id="cart-count">0</div>
             <div>
@@ -90,7 +93,7 @@
                 <p class="text-sm font-bold" id="cart-total">0.00</p>
             </div>
         </div>
-        <div class="flex items-center gap-2 font-bold text-sm bg-black/20 px-4 py-2 rounded-xl">
+        <div class="flex items-center gap-2 font-bold text-xs md:text-sm bg-black/20 px-4 py-2 rounded-xl">
             عرض السلة <i class="fa-solid fa-arrow-left"></i>
         </div>
     </div>
@@ -100,10 +103,10 @@
         <div class="w-full max-w-md bg-slate-900 h-full flex flex-col border-r border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300" id="cart-drawer-content">
             <div class="p-5 border-b border-slate-800 flex items-center justify-between">
                 <h3 class="text-lg font-bold flex items-center gap-2"><i class="fa-solid fa-bag-shopping text-rose-500"></i> سلة طلباتك</h3>
-                <button onclick="toggleCartDrawer(false)" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleCartDrawer(false)" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="p-5 flex-grow overflow-y-auto space-y-4" id="cart-items-container">
-                <!-- Cart items inserted here -->
+                <!-- عناصر السلة -->
             </div>
             <div class="p-5 border-t border-slate-800 bg-slate-950/50 space-y-4">
                 <div class="flex justify-between items-center text-lg font-bold">
@@ -117,11 +120,12 @@
         </div>
     </div>
 
-    <!-- Checkout Modal -->
+    <!-- Checkout Modal with Secure Cancel Button -->
     <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-2xl p-6 relative shadow-2xl space-y-6">
-            <button onclick="closeCheckoutModal()" class="absolute top-5 left-5 w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-xl font-bold border-b border-slate-800 pb-3">تأكيد بيانات التوصيل</h3>
+            <!-- زر الإلغاء الآمن (×) للرجوع دون تقييد المستخدم -->
+            <button onclick="closeCheckoutModal()" class="absolute top-5 left-5 w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-bold border-b border-slate-800 pb-3 flex items-center gap-2"><i class="fa-solid fa-truck-fast text-rose-500"></i> تأكيد بيانات التوصيل</h3>
             <form id="order-form" onsubmit="submitOrder(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 mb-1">الاسم الكامل</label>
@@ -129,34 +133,41 @@
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 mb-1">رقم الهاتف</label>
-                    <input type="tel" id="cust-phone" required dir="ltr" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-rose-500 outline-none transition text-right" placeholder="+966 5X XXX XXXX">
+                    <input type="tel" id="cust-phone" required dir="ltr" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-rose-500 outline-none transition text-right" placeholder="+249 9X XXX XXXX">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 mb-1">عنوان التوصيل بالتفصيل</label>
-                    <textarea id="cust-address" required rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-rose-500 outline-none transition resize-none" placeholder="المدينة، الحي، الشارع، رقم المنزل..."></textarea>
+                    <textarea id="cust-address" required rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-rose-500 outline-none transition resize-none" placeholder="المدينة، الحي، الشارع، المعلم البارز..."></textarea>
                 </div>
-                <button type="submit" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> إرسال الطلب عبر واتساب
-                </button>
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="closeCheckoutModal()" class="w-1/3 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl transition text-sm">
+                        إلغاء وتراجع
+                    </button>
+                    <button type="submit" class="w-2/3 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> إرسال الطلب
+                    </button>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- JavaScript Engine (Dynamic JSON Fetcher) -->
+    <!-- JavaScript Core Engine -->
     <script>
         let restaurantData = {};
         let cart = JSON.parse(localStorage.getItem('restaurant_cart')) || [];
 
         async function initApp() {
             try {
-                // جلب بيانات المطعم تلقائياً من ملف data.json الموجود في نفس المستودع
+                // سحب البيانات آلياً من ملف data.json في المستودع
                 const response = await fetch('data.json');
                 restaurantData = await response.json();
 
-                // تعبئة البيانات في الواجهة
-                document.getElementById('res-name').innerText = restaurantData.name;
-                document.getElementById('res-cuisine').innerText = restaurantData.cuisine;
+                // تحديث عناصر الموقع تلقائياً
+                document.getElementById('page-title').innerText = restaurantData.name || "منصة الطلب الذكية";
+                document.getElementById('res-name').innerText = restaurantData.name || "مطعم";
+                document.getElementById('res-cuisine').innerText = restaurantData.cuisine || "المأكولات الشهية";
                 document.getElementById('res-desc').innerText = restaurantData.description || '';
+                
                 if(restaurantData.name) {
                     document.getElementById('res-logo').innerText = restaurantData.name.charAt(0);
                 }
@@ -165,30 +176,30 @@
                 updateCartUI();
             } catch (error) {
                 console.error("خطأ في جلب بيانات المطعم:", error);
-                document.getElementById('res-name').innerText = "خطأ في تحميل البيانات";
+                document.getElementById('res-name').innerText = "خطأ في تحميل ملف البيانات";
             }
         }
 
         function renderMenu(items) {
             const grid = document.getElementById('menu-grid');
             if(!items || items.length === 0) {
-                grid.innerHTML = `<p class="text-center col-span-full text-slate-500">لا توجد أطباق متاحة حالياً</p>`;
+                grid.innerHTML = `<p class="text-center col-span-full text-slate-500 py-12">لا توجد أطباق متاحة حالياً في القائمة</p>`;
                 return;
             }
             grid.innerHTML = items.map(item => `
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl hover:border-slate-700 transition group flex flex-col justify-between">
+                <div class="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl hover:border-slate-700 transition group flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative">
                             <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 right-3 px-3 py-1 bg-slate-950/80 backdrop-blur-md rounded-full text-xs font-bold text-rose-400">${item.price} ${restaurantData.currency || ''}</span>
+                            <span class="absolute top-3 right-3 px-3 py-1 bg-slate-950/80 backdrop-blur-md rounded-full text-xs font-bold text-rose-400 border border-slate-800">${item.price} ${restaurantData.currency || ''}</span>
                         </div>
                         <div class="p-5 space-y-2">
                             <h4 class="font-bold text-lg">${item.name}</h4>
-                            <p class="text-slate-400 text-xs leading-relaxed">${item.desc}</p>
+                            <p class="text-slate-400 text-xs leading-relaxed">${item.desc || ''}</p>
                         </div>
                     </div>
                     <div class="p-5 pt-0">
-                        <button onclick="addToCart(${item.id})" class="w-full py-3 bg-slate-800 hover:bg-rose-600 text-white font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2">
+                        <button onclick="addToCart(${item.id})" class="w-full py-3 bg-slate-800 hover:bg-rose-600 text-white font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-sm">
                             <i class="fa-solid fa-cart-plus"></i> إضافة إلى الطلب
                         </button>
                     </div>
@@ -196,13 +207,13 @@
             `).join('');
         }
 
-        function filterMenu(tag) {
+        function filterMenu(tag, btnElement) {
             document.querySelectorAll('.chip-btn').forEach(btn => {
-                btn.classList.remove('bg-rose-600', 'text-white');
+                btn.classList.remove('bg-rose-600', 'text-white', 'shadow-md', 'shadow-rose-600/20');
                 btn.classList.add('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
             });
-            event.target.classList.remove('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
-            event.target.classList.add('bg-rose-600', 'text-white');
+            btnElement.classList.remove('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
+            btnElement.classList.add('bg-rose-600', 'text-white', 'shadow-md', 'shadow-rose-600/20');
 
             if(tag === 'all') {
                 renderMenu(restaurantData.menu);
@@ -256,10 +267,10 @@
 
             const container = document.getElementById('cart-items-container');
             if(cart.length === 0) {
-                container.innerHTML = `<div class="text-center py-12 text-slate-500"><i class="fa-solid fa-basket-shopping text-4xl mb-3"></i><p>سلتك فارغة حالياً</p></div>`;
+                container.innerHTML = `<div class="text-center py-16 text-slate-500"><i class="fa-solid fa-basket-shopping text-5xl mb-3 opacity-40"></i><p class="text-sm">سلتك فارغة حالياً</p></div>`;
             } else {
                 container.innerHTML = cart.map(i => `
-                    <div class="flex items-center justify-between bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <div class="flex items-center justify-between bg-slate-950 p-3.5 rounded-xl border border-slate-800">
                         <div class="flex items-center gap-3">
                             <img src="${i.image}" class="w-12 h-12 object-cover rounded-lg">
                             <div>
@@ -268,9 +279,9 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-2 bg-slate-900 px-2 py-1 rounded-lg border border-slate-800">
-                            <button onclick="updateQty(${i.id}, -1)" class="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-xs">-</button>
+                            <button onclick="updateQty(${i.id}, -1)" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-xs transition">-</button>
                             <span class="text-xs font-bold w-4 text-center">${i.qty}</span>
-                            <button onclick="updateQty(${i.id}, 1)" class="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-xs">+</button>
+                            <button onclick="updateQty(${i.id}, 1)" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-xs transition">+</button>
                         </div>
                     </div>
                 `).join('');
